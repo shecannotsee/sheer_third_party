@@ -1,0 +1,13 @@
+{"username":"user_name",
+  "account":"753",
+  "password":"123456",
+  "mobile_phone":"1456789",
+  "role":1,
+  "enable":1,
+  "id":1,
+  "rules": [
+    {"id": "1","name":"111"},
+    {"id": "2","name":"222"},
+    {"id": "3","name":"333"}
+  ]
+}
