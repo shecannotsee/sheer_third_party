@@ -6,9 +6,13 @@ set(PROJECT_NAME "asio-1.18.0")
 set(CMAKE_CXX_FLAGS "-g")
 project(${PROJECT_NAME})
 
+########################################################################################################################
 # import asio
-set(asio_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/asio")
-set(asio_include_dir "${asio_path}/include")
+set(_asio_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/asio")
+set(asio_include_dir "${_asio_path}/include")
+set(asio_lib_dir)
+set(asio_link_libs)
+########################################################################################################################
 
 # include
 include_directories(${asio_include_dir})
@@ -20,5 +24,5 @@ file(GLOB_RECURSE SRC
 )
 add_executable(${PROJECT_NAME} ${SRC})
 
-# 链接库
+# link
 target_link_libraries(${PROJECT_NAME} "-pthread")
