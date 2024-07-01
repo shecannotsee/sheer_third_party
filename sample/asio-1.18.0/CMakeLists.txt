@@ -6,7 +6,7 @@ set(PROJECT_NAME "asio-1.18.0")
 set(CMAKE_CXX_FLAGS "-g")
 project(${PROJECT_NAME})
 
-# import gtest
+# import asio
 set(asio_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/asio")
 set(asio_include_dir "${asio_path}/include")
 
