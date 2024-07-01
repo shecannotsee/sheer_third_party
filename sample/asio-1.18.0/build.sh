@@ -23,7 +23,7 @@ else
 fi
 
 # get source code
-git clone https://github.com/chriskohlhoff/asio.git ./libraries/asio/
+git clone https://github.com/chriskohlhoff/asio.git ./libraries/asio/ --branch asio-1-18-0
 
 cd libraries
 mv asio asio-src
@@ -34,10 +34,9 @@ install_path=$(pwd)
 cd ..
 
 cd asio-src
-git checkout asio-1-12-branch
 cd asio
 ./autogen.sh
-./configure --prefix="$install_path" --without-boost
+./configure --without-boost --prefix="$install_path"
 make -j8
 make install
 
