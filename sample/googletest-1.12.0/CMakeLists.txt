@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(PROJECT_NAME "googletest-1.12.1")
+set(PROJECT_NAME "googletest-1.12.0")
 set(CMAKE_CXX_FLAGS "-g")
 project(${PROJECT_NAME})
 
