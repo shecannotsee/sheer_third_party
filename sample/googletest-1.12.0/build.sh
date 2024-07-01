@@ -23,20 +23,22 @@ else
 fi
 
 # get source code
-git clone --branch v1.12.x --depth 1 https://github.com/google/googletest.git ./libraries/googletest/
-
+git clone https://github.com/google/googletest.git ./libraries/googletest/
 cd libraries
 mv googletest googletest-src
-# build
 mkdir googletest
 cd googletest
-path=$(pwd)
-cmake -DCMAKE_INSTALL_PREFIX=./ ../googletest-src
+install_path=$(pwd)
+cd ..
+
+# build
+cd googletest-src
+git checkout release-1.12.0
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
 make -j8
 make install
-# Delete all, except for the lib and include directories
-shopt -s extglob
-rm -rf !(include|lib)
 
 
 
