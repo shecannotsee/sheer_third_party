@@ -7,7 +7,7 @@ set(CMAKE_CXX_FLAGS "-g")
 project(${PROJECT_NAME})
 
 ########################################################################################################################
-# import asio
+# import json
 set(_nlohmann_json_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/nlohmann_json")
 set(nlohmann_json_include_dir "${_nlohmann_json_path}/include")
 set(nlohmann_json_lib_dir)

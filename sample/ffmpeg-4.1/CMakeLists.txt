@@ -7,7 +7,7 @@ set(CMAKE_CXX_FLAGS "-g")
 project(${PROJECT_NAME})
 
 ########################################################################################################################
-# import asio
+# import ffmpeg
 set(_ffmpeg_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/ffmpeg")
 set(ffmpeg_include_dir "${_ffmpeg_path}/include")
 set(ffmpeg_lib_dir "${_ffmpeg_path}/lib")

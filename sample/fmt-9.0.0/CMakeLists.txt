@@ -7,7 +7,7 @@ set(CMAKE_CXX_FLAGS "-g")
 project(${PROJECT_NAME})
 
 ########################################################################################################################
-# import asio
+# import fmt
 set(_fmt_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/fmt")
 set(fmt_include_dir "${_fmt_path}/include")
 set(fmt_lib_dir "${_fmt_path}/lib")

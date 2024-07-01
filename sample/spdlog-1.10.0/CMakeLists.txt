@@ -7,7 +7,7 @@ set(CMAKE_CXX_FLAGS "-g")
 project(${PROJECT_NAME})
 
 ########################################################################################################################
-# import asio
+# import spdlog
 set(_spdlog_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/spdlog")
 set(spdlog_include_dir "${_spdlog_path}/include")
 set(spdlog_lib_dir "${_spdlog_path}/lib")

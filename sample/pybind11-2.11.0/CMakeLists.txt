@@ -7,7 +7,7 @@ set(CMAKE_CXX_FLAGS "-g")
 project(${PROJECT_NAME})
 
 ########################################################################################################################
-# import asio
+# import pybind11
 set(_pybind11_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/pybind11")
 set(CMAKE_PREFIX_PATH "${_pybind11_path}")
 find_package(pybind11 REQUIRED)

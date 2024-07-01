@@ -7,7 +7,7 @@ set(CMAKE_CXX_FLAGS "-g")
 project(${PROJECT_NAME})
 
 ########################################################################################################################
-# import asio
+# import GSL
 set(_GSL_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/GSL")
 set(GSL_include_dir "${_GSL_path}/include")
 set(GSL_lib_dir)
