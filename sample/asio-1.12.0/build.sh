@@ -23,20 +23,27 @@ else
 fi
 
 # get source code
-git clone --branch v1.12.x --depth 1 https://github.com/google/googletest.git ./libraries/googletest/
+git clone https://github.com/chriskohlhoff/asio.git ./libraries/asio/
 
 cd libraries
-mv googletest googletest-src
+mv asio asio-src
 # build
-mkdir googletest
-cd googletest
-path=$(pwd)
-cmake -DCMAKE_INSTALL_PREFIX=./ ../googletest-src
+mkdir asio
+cd asio
+install_path=$(pwd)
+cd ..
+
+cd asio-src
+git checkout asio-1-12-branch
+cd asio
+./autogen.sh
+./configure --prefix="$install_path" --without-boost
 make -j8
 make install
-# Delete all, except for the lib and include directories
-shopt -s extglob
-rm -rf !(include|lib)
+
+
+
+
 
 
 
