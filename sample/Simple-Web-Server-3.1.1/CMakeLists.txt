@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(PROJECT_NAME "simple_web_server-3.1.1")
+set(PROJECT_NAME "Simple-Web-Server-3.1.1")
 set(CMAKE_CXX_FLAGS "-g")
 project(${PROJECT_NAME})
 
@@ -25,15 +25,15 @@ set(openssl_link_libs ssl crypto)
 
 ########################################################################################################################
 # import Simple-Web-Server
-set(_simple_web_server_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/Simple-Web-Server")
-set(simple_web_server_include_dir "${_simple_web_server_path}/include/simple-web-server")
-set(simple_web_server_lib_dir)
-set(simple_web_server_link_libs)
+set(_Simple-Web-Server_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/Simple-Web-Server")
+set(Simple-Web-Server_include_dir "${_Simple-Web-Server_path}/include/simple-web-server")
+set(Simple-Web-Server_lib_dir)
+set(Simple-Web-Server_link_libs)
 ########################################################################################################################
 
 
 # include
-include_directories(${boost_include_dir} ${simple_web_server_include_dir} ${openssl_include_dir})
+include_directories(${boost_include_dir}  ${openssl_include_dir} ${Simple-Web-Server_include_dir})
 # lib
 link_directories(${openssl_lib_dir})
 
