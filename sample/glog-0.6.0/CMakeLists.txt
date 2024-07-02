@@ -7,7 +7,7 @@ set(CMAKE_CXX_FLAGS "-g")
 project(${PROJECT_NAME})
 
 ########################################################################################################################
-# import fmt
+# import glog
 set(_glog_path "/home/shecannotsee/desktop/sheer_third_party/libraries/glog")
 set(glog_include_dir "${_glog_path}/include")
 set(glog_lib_dir "${_glog_path}/lib")

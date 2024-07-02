@@ -7,7 +7,7 @@ set(CMAKE_CXX_FLAGS "-g")
 project(${PROJECT_NAME})
 
 ########################################################################################################################
-# import yaml-cpp
+# import zlib
 set(_zlib_cpp_path "/home/shecannotsee/desktop/sheer_third_party/libraries/zlib")
 set(zlib_include_dir "${_zlib_path}/include")
 set(zlib_lib_dir "${_zlib_path}/lib")

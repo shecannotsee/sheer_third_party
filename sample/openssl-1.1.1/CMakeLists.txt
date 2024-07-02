@@ -7,7 +7,7 @@ set(CMAKE_CXX_FLAGS "-g")
 project(${PROJECT_NAME})
 
 ########################################################################################################################
-# import json
+# import openssl
 set(_openssl_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/openssl")
 set(openssl_include_dir "${_openssl_path}/include")
 set(openssl_lib_dir)
