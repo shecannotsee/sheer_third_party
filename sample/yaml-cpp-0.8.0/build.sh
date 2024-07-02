@@ -23,16 +23,16 @@ else
 fi
 
 # get source code
-git clone https://github.com/jbeder/yaml-cpp.git ./libraries/yaml_cpp/
+git clone https://github.com/jbeder/yaml-cpp.git ./libraries/yaml-cpp/
 cd libraries
-mv yaml_cpp yaml_cpp-src
-mkdir yaml_cpp
-cd yaml_cpp
+mv yaml-cpp yaml-cpp-src
+mkdir yaml-cpp
+cd yaml-cpp
 install_path=$(pwd)
 cd ..
 
 # build
-cd yaml_cpp-src
+cd yaml-cpp-src
 git checkout 0.8.0
 mkdir build
 cd build
