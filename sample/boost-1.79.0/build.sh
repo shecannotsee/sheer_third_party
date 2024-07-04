@@ -36,4 +36,6 @@ cd boost-src
 git checkout boost-1.79.0
 git submodule update --init --recursive
 ./bootstrap.sh --prefix="$install_path"
+# set python version
+# ./bootstrap.sh --with-python=/usr/local/python3.8/bin/python3 --prefix="$install_path"
 ./b2 install
