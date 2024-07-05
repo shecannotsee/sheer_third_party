@@ -23,7 +23,7 @@ else
 fi
 
 # get source code
-git clone https://github.com/FFmpeg/FFmpeg.git ./libraries/ffmpeg/
+git clone https://github.com/FFmpeg/FFmpeg.git ./libraries/ffmpeg
 cd libraries
 mv ffmpeg ffmpeg-src
 mkdir ffmpeg
@@ -34,7 +34,7 @@ cd ..
 # build
 cd ffmpeg-src
 git checkout release/4.1
-./configure --prefix="$install_path" --enable-gpl --enable-libx264 --enable-libx265
+./configure --prefix="$install_path" --enable-shared --enable-gpl --enable-libx264 --enable-libx265
 make -j8
 make install
 
