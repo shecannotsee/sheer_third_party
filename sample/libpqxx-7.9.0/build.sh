@@ -32,6 +32,7 @@ install_path=$(pwd)
 cd ..
 # pgsql include #
 cd PostgreSQL
+pgsql_dir=$(pwd)
 cd include
 pgsql_include=$(pwd)
 cd ..
@@ -47,11 +48,25 @@ cd ..
 # build
 cd libpqxx-src
 git checkout 7.9.0
-./configure --prefix="$install_path" \
-  --enable-shared \
-  --enable-static \
-  --with-postgres-include="$pgsql_include" \
-  --with-postgres-lib="$pgsql_lib"
+# method 1 #
+#./configure --prefix="$install_path" \
+#  --enable-shared \
+#  --enable-static \
+#  --with-postgres-include="$pgsql_include" \
+#  --with-postgres-lib="$pgsql_lib"
+# 1 done #
+
+# method 2 #
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" \
+  -DPostgreSQL_ROOT="$pgsql_dir" \
+  -DSKIP_BUILD_TEST=on \
+  -DBUILD_SHARED_LIBS=on \
+  -DBUILD_DOC=off \
+  ..
+# 2 done #
+
 make -j8
 make install
 
