@@ -56,17 +56,3 @@ fi
 echo "--"
 kill -INT `head -1 ./data_store/postmaster.pid`
 echo "--"
-
-
-
-
-
-
-
-
-
-
-
-
-
-

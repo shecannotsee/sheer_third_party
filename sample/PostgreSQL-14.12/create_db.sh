@@ -47,17 +47,3 @@ fi
 echo "--"
 ./bin/createdb "$@"
 echo "--"
-
-
-
-
-
-
-
-
-
-
-
-
-
-

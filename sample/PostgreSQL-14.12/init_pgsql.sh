@@ -44,17 +44,6 @@ else
     mkdir data_store
 fi
 
+echo "--"
 ./bin/initdb ./data_store
-
-
-
-
-
-
-
-
-
-
-
-
-
+echo "--"

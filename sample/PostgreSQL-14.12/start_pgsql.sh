@@ -58,17 +58,3 @@ echo "--"
   -l ./log/log.log \
   -D ./data_store
 echo "--"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
