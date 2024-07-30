@@ -35,6 +35,6 @@ cd ..
 cd sheer-src
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" -DSHE_TEST_ROOT_DIR=/home/shecannotsee/Desktop/sheer_third_party/libraries/she_test -Dbuild_tests=OFF ..
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" -Dbuild_tests=OFF ..
 make -j8
 make install

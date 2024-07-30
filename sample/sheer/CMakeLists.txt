@@ -8,10 +8,10 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import she_test
-set(_sheer_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/sheer/sheer")
+set(_sheer_path "/home/shecannotsee/Desktop/projects/sheer/build/sheer123")
 set(sheer_include_dir "${_sheer_path}/include")
 set(sheer_lib_dir "${_sheer_path}/lib")
-set(sheer_link_libs libsheer.a)
+set(sheer_link_libs libsheer.so)# Possible issue of duplicate names
 ########################################################################################################################
 
 # include
