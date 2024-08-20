@@ -20,4 +20,6 @@ link_directories()
 
 pybind11_add_module(double_vector_1D api_1.cpp)
 pybind11_add_module(double_vector_2D api_2.cpp)
+pybind11_add_module(sample_cpp_lib sample_cpp_lib.cpp)
+
 list(APPEND api double_vector_1D double_vector_2D)
