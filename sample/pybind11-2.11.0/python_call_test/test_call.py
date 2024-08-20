@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, './cmake-build-debug')
+sys.path.insert(0, '../cmake-build-debug')
 import double_vector_1D
 import double_vector_2D
 
