@@ -26,4 +26,11 @@ print(".name   ->  Jack:", person.name)
 person.name = "Marry"
 print(".name   -> Marry:", person.name)
 
+enum_test = sample_cpp_lib.NUMBER.ONE
+print(enum_test)
+sample_cpp_lib.enum_func(enum_test)
+enum_test = sample_cpp_lib.NUMBER.TWO
+print(enum_test)
+sample_cpp_lib.enum_func(enum_test)
+
 

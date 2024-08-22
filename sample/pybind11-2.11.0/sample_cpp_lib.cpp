@@ -1,5 +1,6 @@
 #include <pybind11/pybind11.h>
 
+#include <iostream>
 #include <utility>
 
 int add(int i, int j) {
@@ -36,6 +37,19 @@ class Person {
   }
 };
 
+enum class NUMBER {
+  ONE,
+  TWO
+};
+
+static void enum_func(NUMBER n) {
+  if (n==NUMBER::ONE) {
+    std::cout << "1\n";
+  } else if(n==NUMBER::TWO) {
+    std::cout << "2\n";
+  }
+}
+
 namespace py = pybind11;
 
 PYBIND11_MODULE(sample_cpp_lib, m) {
@@ -55,4 +69,11 @@ PYBIND11_MODULE(sample_cpp_lib, m) {
   py::class_<Person>(m, "Personn")
       .def(py::init<const std::string &>())
       .def_property("name", &Person::get_name, &Person::set_name);
+
+  // 封装枚举类
+  py::enum_<NUMBER>(m, "NUMBER")
+      .value("ONE", NUMBER::ONE)
+      .value("TWO", NUMBER::TWO)
+      .export_values();
+  m.def("enum_func",&enum_func,"");
 }
