@@ -9,7 +9,6 @@ import build_project
 
 
 if __name__ == "__main__":
-    logger = build_record(log_file="build_process.log")
     try:
         # projcet info
         gtest: project.info = project.info("gtest","https://github.com/google/googletest.git", "release-1.12.0", "libraries")
