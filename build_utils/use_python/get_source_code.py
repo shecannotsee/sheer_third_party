@@ -1,6 +1,6 @@
 import subprocess
 from typing import NoReturn
-from record import log_message
+from sheer_third_party.build_utils.use_python.build_log import log_message
 
 
 def clone_repository(url: str, destination: str) -> NoReturn:

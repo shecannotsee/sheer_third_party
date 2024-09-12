@@ -1,7 +1,7 @@
 import os
 import subprocess
 from typing import NoReturn
-from record import log_message
+from sheer_third_party.build_utils.use_python.log import log_message
 
 
 def cmake(*args) -> NoReturn:
