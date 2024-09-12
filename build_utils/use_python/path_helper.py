@@ -157,6 +157,7 @@ if __name__ == "__main__":
         record(LOG_LEVEL.INFO, f"path change:{current_path} -> {test_dir_name}")
         change_path_to(current_path)
         check_workiong_path_in(work_path)
+        delete_directory(test_dir_name) # Delete file named "temp"
     except Exception as e:
         record(LOG_LEVEL.WARNING, str(e)) # Never execute
     
