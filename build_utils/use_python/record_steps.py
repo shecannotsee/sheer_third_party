@@ -43,22 +43,6 @@ class step_file:
             self.config.write(configfile)
 
 
-def step1() -> bool:
-    return True
-
-
-def step2() -> bool:
-    return True
-
-
-def step3() -> bool:
-    return False
-
-
-def step4() -> bool:
-    return True
-
-
 
 if __name__ == "__main__":
     file_name = "build.ini"
@@ -71,27 +55,31 @@ if __name__ == "__main__":
         ("build_install", {"work_path": "my_lib"})
     ]
 
-
     try:
-        step_id: int = 1
+        step_id: int = 0
         for step_name, step_data in steps:
-            record(LOG_LEVEL.INFO, f"start......{step_name}")
+            step_id += 1
+            record(LOG_LEVEL.INFO, f"start......{str(step_id)}: {step_name}")
             # 检查当前步骤是否已经完成
             if build_log.get_value(step_name, completed_key) == "y":
                 continue
+
+            # 分步骤执行
             if step_id == 1:
                 # 为本步骤缓存所必要的值, 以及执行成功的标志
                 build_log.set_value(step_name, completed_key, "n")
-                # 执行本步骤,
-                if step1() == False:
+                # 执行本步骤
+                step1: bool = True
+                if step1 == False:
                     raise Exception(f"Step execution interrupt: {step_name}")
                 # 执行成功则记录步骤执行结果
                 build_log.set_value(step_name, completed_key, "y")
             elif step_id ==2:
                 # 为本步骤缓存所必要的值, 以及执行成功的标志
                 build_log.set_value(step_name, completed_key, "n")
-                # 执行本步骤,
-                if step2() == False:
+                # 执行本步骤
+                step2: bool = True
+                if step2 == False:
                     raise Exception(f"Step execution interrupt: {step_name}")
                 # 执行成功则记录步骤执行结果
                 build_log.set_value(step_name, completed_key, "y")
@@ -99,7 +87,8 @@ if __name__ == "__main__":
                 # 为本步骤缓存所必要的值, 以及执行成功的标志
                 build_log.set_value(step_name, completed_key, "n")
                 # 执行本步骤,
-                if step3() == False:
+                step3: bool = False
+                if step3 == False:
                     raise Exception(f"Step execution interrupt: {step_name}")
                 # 执行成功则记录步骤执行结果
                 build_log.set_value(step_name, completed_key, "y")
@@ -107,13 +96,13 @@ if __name__ == "__main__":
                 # 为本步骤缓存所必要的值, 以及执行成功的标志
                 build_log.set_value(step_name, completed_key, "n")
                 # 执行本步骤,
-                if step4() == False:
+                step4: bool = True
+                if step4 == False:
                     raise Exception(f"Step execution interrupt: {step_name}")
                 # 执行成功则记录步骤执行结果
                 build_log.set_value(step_name, completed_key, "y")
             else: 
                 raise Exception("Unknow step......{step_name}")
-            
-            step_id += 1    
+
     except Exception as e:
         record(LOG_LEVEL.WARNING, str(e))
