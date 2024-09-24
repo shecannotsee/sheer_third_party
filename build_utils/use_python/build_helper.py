@@ -18,10 +18,11 @@ def make(*args) -> str:
     # Obtain CPU core
     total_cores = os.cpu_count() or 1
 
-    command = ['make', "-j" + str(total_cores)] + list(args)
+    command = ["make", "-j" + str(total_cores)] + list(args)
     subprocess.run(command, check=True)
     return " ".join(command) # Format output command
 
 def install() -> str:
-    subprocess.run(["make", "install"], check=True)
-    return " ".join("make install") # Format output command
+    command = ["make", "install"]
+    subprocess.run(command, check=True)
+    return " ".join(command) # Format output command
