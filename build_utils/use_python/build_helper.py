@@ -22,6 +22,6 @@ def make(*args) -> str:
     subprocess.run(command, check=True)
     return " ".join(command) # Format output command
 
-def install():
+def install() -> str:
     subprocess.run(["make", "install"], check=True)
     return " ".join("make install") # Format output command
