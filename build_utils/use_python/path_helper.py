@@ -1,7 +1,6 @@
 import os
 import shutil
 from typing import NoReturn
-from log import record, LOG_LEVEL
 
 def get_current_path() -> str:
     """
@@ -99,70 +98,3 @@ def delete_file(file_path: str) -> NoReturn:
     """
     if os.path.isfile(file_path):
         os.remove(file_path)
-
-
-# 测试代码部分
-if __name__ == "__main__":
-    # test [get_current_path]
-    record(LOG_LEVEL.INFO, "test......get_current_path")
-    current_path: str = get_current_path()
-    record(LOG_LEVEL.INFO, f"current_path: {current_path}")
-    work_path: str = os.path.basename(current_path)
-    record(LOG_LEVEL.INFO, f"work_path: {work_path}")
-
-    # test [check_workiong_path_in]
-    record(LOG_LEVEL.INFO, "test......check_workiong_path_in")
-    try:
-        check_workiong_path_in(work_path) # Good 
-        check_workiong_path_in(work_path + "hello!") # Trigger exception
-    except Exception as e:
-        record(LOG_LEVEL.WARNING, str(e)) # Will execute
-
-    # test [check_directory_exists] [delete_directory] [is_directory_empty]
-    record(LOG_LEVEL.INFO, "test......check_directory_exists, delete_directory, is_directory_empty")
-    try:
-        test_dir_name: str = "temp"
-        check_directory_exists(test_dir_name) # Create dir named "temp"
-        if is_directory_empty(test_dir_name) == True:
-            record(LOG_LEVEL.INFO, f"{test_dir_name} is empty") # Trigger
-        delete_directory(test_dir_name) # Delete dir named "temp"
-        record(LOG_LEVEL.INFO, f"delete dir {test_dir_name} successfully")
-    except Exception as e:
-        record(LOG_LEVEL.WARNING, str(e)) # Never execute
-
-    # test [check_file_exists] [delete_file] [is_file_empty]
-    record(LOG_LEVEL.INFO, "test......check_file_exists, delete_file, is_file_empty")
-    try:
-        test_file_name: str = "temp"
-        check_file_exists(test_file_name) # Create file named "temp"
-        if is_file_empty(test_file_name) == True:
-            record(LOG_LEVEL.INFO, f"{test_file_name} is empty") # Trigger
-        delete_file(test_file_name) # Delete file named "temp"
-        record(LOG_LEVEL.INFO, f"delete file {test_file_name} successfully")
-    except Exception as e:
-        record(LOG_LEVEL.WARNING, str(e)) # Never execute
-
-    # test [change_path_to]
-    record(LOG_LEVEL.INFO, "test......change_path_to")
-    try:
-        current_path: str = change_path_to("temp") # Trigger exception
-    except Exception as e:
-        record(LOG_LEVEL.WARNING, str(e)) # Will execute
-
-    try:
-        test_dir_name: str = "temp"
-        check_directory_exists(test_dir_name) # Create dir named "temp"
-        current_path: str = change_path_to(test_dir_name) # step to temp path
-        check_workiong_path_in(test_dir_name)
-        record(LOG_LEVEL.INFO, f"path change:{current_path} -> {test_dir_name}")
-        change_path_to(current_path)
-        check_workiong_path_in(work_path)
-        delete_directory(test_dir_name) # Delete file named "temp"
-    except Exception as e:
-        record(LOG_LEVEL.WARNING, str(e)) # Never execute
-    
-
-
-    record(LOG_LEVEL.INFO, "test done")
-
-
