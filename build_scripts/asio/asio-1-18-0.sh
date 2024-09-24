@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -39,10 +37,3 @@ cd asio
 ./configure --without-boost --prefix="$install_path"
 make -j8
 make install
-
-
-
-
-
-
-
