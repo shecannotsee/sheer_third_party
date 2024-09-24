@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -39,6 +37,3 @@ cd build
 cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
 make -j8
 make install
-
-
-
