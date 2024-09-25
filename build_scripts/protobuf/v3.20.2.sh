@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -26,8 +24,8 @@ fi
 git clone https://github.com/protocolbuffers/protobuf.git ./libraries/protobuf/
 cd libraries
 mv protobuf protobuf-src
-mkdir protobuf
-cd protobuf
+mkdir protobuf-v3.20.2
+cd protobuf-v3.20.2
 install_path=$(pwd)
 cd ..
 
@@ -40,12 +38,3 @@ cd build
 cmake -DCMAKE_INSTALL_PREFIX="$install_path" -Dprotobuf_BUILD_TESTS=OFF ../cmake/
 make -j8
 make install
-
-
-
-
-
-
-
-
-
