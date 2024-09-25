@@ -24,8 +24,8 @@ fi
 git clone https://github.com/FFmpeg/FFmpeg.git ./libraries/ffmpeg
 cd libraries
 mv ffmpeg ffmpeg-src
-mkdir ffmpeg-release-4.1
-cd ffmpeg-release-4.1
+mkdir ffmpeg-4.1
+cd ffmpeg-4.1
 install_path=$(pwd)
 cd ..
 
