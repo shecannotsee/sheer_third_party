@@ -74,7 +74,7 @@ if __name__ == "__main__":
         ("pre_build", { "work_path"        : "sheer_third_party", 
                         "source_path"      : "libraries/googletest-src",
                         "build_dir"        : "build",
-                        "version"          : "release-1.12.0",
+                        "version"          : "1.12.0",
                         "pre_install_path" : "libraries/googletest", 
                         "cmake_options1"   : "-DCMAKE_INSTALL_PREFIX="}),
         ("build_with_install", {"work_path"    : "sheer_third_party",
