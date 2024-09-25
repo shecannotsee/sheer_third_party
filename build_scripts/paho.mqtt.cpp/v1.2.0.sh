@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -26,8 +24,8 @@ fi
 git clone https://github.com/eclipse/paho.mqtt.cpp.git ./libraries/paho.mqtt.cpp/
 cd libraries
 mv paho.mqtt.cpp paho.mqtt.cpp-src
-mkdir paho.mqtt.cpp
-cd paho.mqtt.cpp
+mkdir paho.mqtt.cpp-v1.2.0
+cd paho.mqtt.cpp-v1.2.0
 install_path=$(pwd)
 cd ..
 
@@ -39,17 +37,8 @@ cd build
 # set openssl path
 cmake -DCMAKE_INSTALL_PREFIX="$install_path" \
   -DPAHO_WITH_SSL=TRUE \
-  -DOPENSSL_ROOT_DIR=/home/shecannotsee/Desktop/sheer_third_party/libraries/openssl \
-  -DCMAKE_PREFIX_PATH=/home/shecannotsee/Desktop/sheer_third_party/libraries/paho.mqtt.c \
+  -DOPENSSL_ROOT_DIR=/home/shecannotsee/Desktop/sheer_third_party/libraries/openssl-1.1.1 \
+  -DCMAKE_PREFIX_PATH=/home/shecannotsee/Desktop/sheer_third_party/libraries/paho.mqtt.c-v1.3.10 \
   ..
 make -j8
 make install
-
-
-
-
-
-
-
-
-
