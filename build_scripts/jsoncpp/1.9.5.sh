@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -26,8 +24,8 @@ fi
 git clone https://github.com/open-source-parsers/jsoncpp.git ./libraries/jsoncpp/
 cd libraries
 mv jsoncpp jsoncpp-src
-mkdir jsoncpp
-cd jsoncpp
+mkdir jsoncpp-1.9.5
+cd jsoncpp-1.9.5
 install_path=$(pwd)
 cd ..
 
@@ -39,12 +37,3 @@ cd build
 cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
 make -j8
 make install
-
-
-
-
-
-
-
-
-
