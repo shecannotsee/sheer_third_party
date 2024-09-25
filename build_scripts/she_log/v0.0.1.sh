@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -32,8 +30,8 @@ cd ..
 # build done.
 
 mv she_log she_log-src
-mkdir she_log
-cd she_log
+mkdir she_log-v0.0.1
+cd she_log-v0.0.1
 install_path=$(pwd)
 cd ..
 
