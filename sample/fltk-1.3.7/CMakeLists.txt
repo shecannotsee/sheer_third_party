@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import fltk
-set(_fltk_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/fltk")
+set(_fltk_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/fltk-1.3.7")
 set(fltk_include_dir "${_fltk_path}/include")
 set(fltk_lib_dir "${_fltk_path}/lib")
 set(fltk_link_libs fltk fltk_gl)

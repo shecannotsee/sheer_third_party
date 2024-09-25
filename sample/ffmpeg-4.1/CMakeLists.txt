@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import ffmpeg
-set(_ffmpeg_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/ffmpeg")
+set(_ffmpeg_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/ffmpeg-4.1")
 set(ffmpeg_include_dir "${_ffmpeg_path}/include")
 set(ffmpeg_lib_dir "${_ffmpeg_path}/lib")
 set(ffmpeg_link_libs avcodec avdevice avfilter avformat avutil postproc swresample swscale)

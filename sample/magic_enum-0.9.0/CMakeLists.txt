@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import GSL
-set(_magic_enum_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/magic_enum")
+set(_magic_enum_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/magic_enum-v0.9.0")
 set(magic_enum_include_dir "${_magic_enum_path}/include")
 set(magic_enum_lib_dir)
 set(magic_enum_link_libs)

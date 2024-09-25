@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import she_ini_parse
-set(_she_ini_parse_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/she_ini_parse")
+set(_she_ini_parse_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/she_ini_parse-v0.0.1")
 set(she_ini_parse_include_dir "${_she_ini_parse_path}/include")
 set(she_ini_parse_lib_dir "${_she_ini_parse_path}/lib")
 set(she_ini_parse_link_libs she_ini_parse)

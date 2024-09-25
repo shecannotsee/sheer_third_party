@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import benchmark
-set(_benchmark_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/benchmark")
+set(_benchmark_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/benchmark-v1.8.3")
 set(benchmark_include_dir "${_benchmark_path}/include")
 set(benchmark_lib_dir "${_benchmark_path}/lib")
 set(benchmark_link_libs benchmark benchmark_main)

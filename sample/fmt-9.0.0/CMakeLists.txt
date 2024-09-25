@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import fmt
-set(_fmt_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/fmt")
+set(_fmt_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/fmt-9.0.0")
 set(fmt_include_dir "${_fmt_path}/include")
 set(fmt_lib_dir "${_fmt_path}/lib")
 set(fmt_link_libs fmt)

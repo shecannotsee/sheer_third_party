@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import GSL
-set(_json-c_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/json-c")
+set(_json-c_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/json-c-0.17")
 set(json-c_include_dir "${_json-c_path}/include")
 set(json-c_lib_dir "${_json-c_path}/lib")
 set(json-c_link_libs json-c)

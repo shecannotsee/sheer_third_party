@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import openssl
-set(_openssl_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/openssl")
+set(_openssl_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/openssl-1.1.1")
 set(openssl_include_dir "${_openssl_path}/include")
 set(openssl_lib_dir "${_openssl_path}/lib")
 set(openssl_link_libs ssl crypto)
@@ -16,7 +16,7 @@ set(openssl_link_libs ssl crypto)
 
 ########################################################################################################################
 # import jwt-cpp
-set(_jwt-cpp_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/jwt-cpp")
+set(_jwt-cpp_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/jwt-cpp-v0.7.0")
 set(jwt-cpp_include_dir "${_jwt-cpp_path}/include")
 set(jwt-cpp_lib_dir)
 set(jwt-cpp_link_libs)

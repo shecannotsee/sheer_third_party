@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import asio
-set(_asio_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/asio")
+set(_asio_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/asio-1.18.0")
 set(asio_include_dir "${_asio_path}/include")
 set(asio_lib_dir)
 set(asio_link_libs)

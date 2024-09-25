@@ -121,10 +121,10 @@ p3:
     //       file_stream << content << std::endl;
     //   }
     // });
-    const std::string dir_path      = "/home/shecannotsee/desktop/all_code/sheTestcode/openssl1.1.1s_test/test_dir"; // Replace with your directory path
+    const std::string dir_path      = "../test_dir"; // Replace with your directory path
     const std::vector<std::string> file_names = {"test_delete.txt", "test_file1.txt"}; // Add your file names
     const std::string password      = "123456789";
-    const std::string zip_file_path = "/home/shecannotsee/desktop/all_code/sheTestcode/openssl1.1.1s_test/temp/dir.zip";
+    const std::string zip_file_path = "../temp/dir.zip";
 
     if (!zip_files_with_pwd(dir_path, file_names, password, zip_file_path)) {
       std::cout << "file process failed.\n";

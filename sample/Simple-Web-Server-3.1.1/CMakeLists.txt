@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import boost
-set(_boost_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/boost")
+set(_boost_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/boost-1.79.0")
 find_package(Boost REQUIRED COMPONENTS system filesystem PATHS ${_boost_path})
 set(boost_include_dir ${Boost_INCLUDE_DIRS})
 set(boost_lib_dir)
@@ -17,7 +17,7 @@ set(boost_link_libs ${Boost_LIBRARIES})
 
 ########################################################################################################################
 # import openssl
-set(_openssl_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/openssl")
+set(_openssl_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/openssl-1.1.1")
 set(openssl_include_dir "${_openssl_path}/include")
 set(openssl_lib_dir)
 set(openssl_link_libs ssl crypto)
@@ -25,7 +25,7 @@ set(openssl_link_libs ssl crypto)
 
 ########################################################################################################################
 # import Simple-Web-Server
-set(_Simple-Web-Server_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/Simple-Web-Server")
+set(_Simple-Web-Server_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/Simple-Web-Server-v3.1.1")
 set(Simple-Web-Server_include_dir "${_Simple-Web-Server_path}/include/simple-web-server")
 set(Simple-Web-Server_lib_dir)
 set(Simple-Web-Server_link_libs)

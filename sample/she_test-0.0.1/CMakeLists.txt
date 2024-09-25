@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import she_test
-set(_she_test_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/she_test")
+set(_she_test_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/she_test-0.0.1")
 set(she_test_include_dir "${_she_test_path}/include")
 set(she_test_lib_dir)
 set(she_test_link_libs)

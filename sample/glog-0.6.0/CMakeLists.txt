@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import glog
-set(_glog_path "/home/shecannotsee/desktop/sheer_third_party/libraries/glog")
+set(_glog_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/glog-v0.6.0")
 set(glog_include_dir "${_glog_path}/include")
 set(glog_lib_dir "${_glog_path}/lib")
 set(glog_link_libs glog)

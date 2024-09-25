@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import GSL
-set(_GSL_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/GSL")
+set(_GSL_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/GSL-v4.0.0")
 set(GSL_include_dir "${_GSL_path}/include")
 set(GSL_lib_dir)
 set(GSL_link_libs)

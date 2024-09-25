@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import jsoncpp
-set(_jsoncpp_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/jsoncpp")
+set(_jsoncpp_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/jsoncpp-1.9.5")
 set(jsoncpp_include_dir "${_jsoncpp_path}/include")
 set(jsoncpp_lib_dir "${_jsoncpp_path}/lib")
 set(jsoncpp_link_libs jsoncpp)

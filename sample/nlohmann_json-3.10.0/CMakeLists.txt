@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import nlohmann_json
-set(_nlohmann_json_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/nlohmann_json")
+set(_nlohmann_json_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/nlohmann_json-v3.10.0")
 set(nlohmann_json_include_dir "${_nlohmann_json_path}/include")
 set(nlohmann_json_lib_dir)
 set(nlohmann_json_link_libs)

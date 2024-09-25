@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import she_log
-set(_she_log_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/she_log")
+set(_she_log_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/she_log-v0.0.1")
 set(she_log_include_dir "${_she_log_path}/include")
 set(she_log_lib_dir "${_she_log_path}/lib")
 set(she_log_link_libs she_log)

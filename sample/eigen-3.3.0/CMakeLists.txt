@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import ffmpeg
-set(_eigen_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/eigen")
+set(_eigen_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/eigen-3.3.0")
 set(eigen_include_dir "${_eigen_path}/include")
 set(eigen_lib_dir)
 set(eigen_link_libs)

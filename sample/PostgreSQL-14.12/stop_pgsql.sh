@@ -26,11 +26,11 @@ fi
 # check PostgreSQL
 cd libraries
 echo "Check libraries exist..."
-if [ -d "./PostgreSQL" ];
+if [ -d "./PostgreSQL-14.12" ];
 then
-    echo "PostgreSQL exist."
+    echo "PostgreSQL-14.12 exist."
 else
-    echo "Directory [PostgreSQL] does not exist"
+    echo "Directory [PostgreSQL-14.12] does not exist"
     exit 1 # stop
 fi
 

@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import FTXUI
-set(_FTXUI_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/FTXUI")
+set(_FTXUI_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/FTXUI-v5.0.0")
 set(FTXUI_include_dir "${_FTXUI_path}/include")
 set(FTXUI_lib_dir "${_FTXUI_path}/lib")
 set(FTXUI_link_libs ftxui-component ftxui-dom ftxui-screen)

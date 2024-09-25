@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import zlib
-set(_zlib_cpp_path "/home/shecannotsee/desktop/sheer_third_party/libraries/zlib")
+set(_zlib_cpp_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/zlib-v1.2.13")
 set(zlib_include_dir "${_zlib_path}/include")
 set(zlib_lib_dir "${_zlib_path}/lib")
 set(zlib_link_libs z)

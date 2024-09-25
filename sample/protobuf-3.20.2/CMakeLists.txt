@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import protobuf
-set(_protobuf_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/protobuf")
+set(_protobuf_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/protobuf-v3.20.2")
 set(protobuf_include_dir "${_protobuf_path}/include")
 set(protobuf_lib_dir "${_protobuf_path}/lib")
 set(protobuf_link_libs protobuf)

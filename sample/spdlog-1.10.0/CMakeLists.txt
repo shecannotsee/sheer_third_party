@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import spdlog
-set(_spdlog_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/spdlog")
+set(_spdlog_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/spdlog-v1.10.0")
 set(spdlog_include_dir "${_spdlog_path}/include")
 set(spdlog_lib_dir "${_spdlog_path}/lib")
 set(spdlog_link_libs spdlog)

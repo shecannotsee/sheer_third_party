@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import yaml-cpp
-set(_yaml-cpp_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/yaml-cpp")
+set(_yaml-cpp_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/yaml-cpp-0.8.0")
 set(yaml-cpp_include_dir "${_yaml-cpp_path}/include")
 set(yaml-cpp_lib_dir "${_yaml-cpp_path}/lib")
 set(yaml-cpp_link_libs yaml-cpp)

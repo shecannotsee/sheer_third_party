@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import libpg
-set(_libpq_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/PostgreSQL")
+set(_libpq_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/PostgreSQL-14.12")
 set(libpq_include_dir "${_libpq_path}/include")
 set(libpq_lib_dir "${_libpq_path}/lib")
 set(libpq_link_libs pq)
@@ -16,7 +16,7 @@ set(libpq_link_libs pq)
 
 ########################################################################################################################
 # import libpqxx
-set(_libpqxx_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/libpqxx")
+set(_libpqxx_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/libpqxx-7.9.0")
 set(libpqxx_include_dir "${_libpqxx_path}/include")
 set(libpqxx_lib_dir "${_libpqxx_path}/lib")
 set(libpqxx_link_libs pqxx)

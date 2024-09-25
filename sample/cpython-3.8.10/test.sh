@@ -13,4 +13,4 @@ else
     exit 1  # stop
 fi
 
-../../libraries/cpython/bin/python3 --version
+../../libraries/cpython-v3.8.0/bin/python3 --version

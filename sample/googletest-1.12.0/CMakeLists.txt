@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import gtest
-set(_gtest_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/googletest")
+set(_gtest_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/googletest-1.12.0")
 set(gtest_include_dir "${_gtest_path}/include")
 set(gtest_lib_dir "${_gtest_path}/lib")
 set(gtest_link_libs gmock gtest)

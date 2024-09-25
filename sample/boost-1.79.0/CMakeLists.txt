@@ -8,7 +8,7 @@ project(${PROJECT_NAME})
 
 ########################################################################################################################
 # import boost
-set(_boost_path "/home/shecannotsee/Desktop/sheer_third_party/libraries/boost")
+set(_boost_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/boost-1.79.0")
 find_package(Boost REQUIRED COMPONENTS system filesystem PATHS ${_boost_path})
 set(boost_include_dir ${Boost_INCLUDE_DIRS})
 set(boost_lib_dir)
