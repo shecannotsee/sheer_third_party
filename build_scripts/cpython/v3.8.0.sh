@@ -24,8 +24,8 @@ fi
 git clone https://github.com/python/cpython.git ./libraries/cpython/
 cd libraries
 mv cpython cpython-src
-mkdir cpython
-cd cpython
+mkdir cpython-v3.8.0
+cd cpython-v3.8.0
 install_path=$(pwd)
 cd ..
 
