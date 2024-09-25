@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -26,8 +24,8 @@ fi
 git clone https://github.com/shecannotsee/she_test.git ./libraries/she_test/
 cd libraries
 mv she_test she_test-src
-mkdir she_test
-cd she_test
+mkdir she_test-0.0.1
+cd she_test-0.0.1
 install_path=$(pwd)
 cd ..
 
