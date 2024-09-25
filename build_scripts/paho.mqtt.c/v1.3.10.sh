@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -26,8 +24,8 @@ fi
 git clone https://github.com/eclipse/paho.mqtt.c.git ./libraries/paho.mqtt.c/
 cd libraries
 mv paho.mqtt.c paho.mqtt.c-src
-mkdir paho.mqtt.c
-cd paho.mqtt.c
+mkdir paho.mqtt.c-v1.3.10
+cd paho.mqtt.c-v1.3.10
 install_path=$(pwd)
 cd ..
 
@@ -43,12 +41,3 @@ cmake -DCMAKE_INSTALL_PREFIX="$install_path" \
   ..
 make -j8
 make install
-
-
-
-
-
-
-
-
-
