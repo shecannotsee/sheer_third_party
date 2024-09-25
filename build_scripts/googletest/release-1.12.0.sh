@@ -24,8 +24,8 @@ fi
 git clone https://github.com/google/googletest.git ./libraries/googletest/
 cd libraries
 mv googletest googletest-src
-mkdir googletest
-cd googletest
+mkdir googletest-release-1.12.0
+cd googletest-release-1.12.0
 install_path=$(pwd)
 cd ..
 

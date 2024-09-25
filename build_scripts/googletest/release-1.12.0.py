@@ -63,22 +63,22 @@ def build_with_install(work_path: str, source_path: str, build_dir: str):
 
 if __name__ == "__main__":
     check_directory_exists("build_log")
-    record_step_file_name = "build_log/build_template.ini"
+    record_step_file_name = "build_log/googletest-release-1.12.0.ini"
     build_log: step_file = step_file(record_step_file_name)
     completed_key: str = "completed" # step exec success key
     steps: list[tuple[str, Dict[str, str]]] = [
         ("get_source_code", {   "work_path"  : "sheer_third_party",
-                                "clone_path" : "libraries/googletest-source",
+                                "clone_path" : "libraries/googletest-src",
                                 "url"        : "https://github.com/google/googletest.git", 
                                 "version"    : "release-1.12.0"}),
         ("pre_build", { "work_path"        : "sheer_third_party", 
-                        "source_path"      : "libraries/googletest-source",
+                        "source_path"      : "libraries/googletest-src",
                         "build_dir"        : "build",
                         "version"          : "release-1.12.0",
                         "pre_install_path" : "libraries/googletest", 
                         "cmake_options1"   : "-DCMAKE_INSTALL_PREFIX="}),
         ("build_with_install", {"work_path"    : "sheer_third_party",
-                                "source_path"  : "libraries/googletest-source",
+                                "source_path"  : "libraries/googletest-src",
                                 "build_dir"    : "build"})
     ]
 
