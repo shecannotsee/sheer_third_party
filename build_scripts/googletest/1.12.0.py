@@ -63,7 +63,7 @@ def build_with_install(work_path: str, source_path: str, build_dir: str):
 
 if __name__ == "__main__":
     check_directory_exists("build_log")
-    record_step_file_name = "build_log/googletest-release-1.12.0.ini"
+    record_step_file_name = "build_log/googletest-1.12.0.ini"
     build_log: step_file = step_file(record_step_file_name)
     completed_key: str = "completed" # step exec success key
     steps: list[tuple[str, Dict[str, str]]] = [
