@@ -24,8 +24,8 @@ fi
 git clone https://github.com/google/benchmark.git ./libraries/benchmark/
 cd libraries
 mv benchmark benchmark-src
-mkdir benchmark
-cd benchmark
+mkdir benchmark-v1.8.3
+cd benchmark-v1.8.3
 install_path=$(pwd)
 cd ..
 
