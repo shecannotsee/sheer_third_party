@@ -26,8 +26,8 @@ fi
 git clone https://github.com/pocoproject/poco.git ./libraries/poco/
 cd libraries
 mv poco poco-src
-mkdir poco
-cd poco
+mkdir poco-1.12.0
+cd poco-1.12.0
 install_path=$(pwd)
 cd ..
 
@@ -37,12 +37,3 @@ git checkout poco-1.12.0-release
 ./configure --prefix="$install_path" --no-tests
 make -j8
 make install
-
-
-
-
-
-
-
-
-
