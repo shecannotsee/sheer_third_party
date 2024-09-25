@@ -38,12 +38,3 @@ cd build
 cmake -DBOOST_ROOT=/home/shecannotsee/Desktop/sheer_third_party/libraries/boost-1.79.0 -DCMAKE_INSTALL_PREFIX="$install_path" ..
 make -j8
 make install
-
-
-
-
-
-
-
-
-
