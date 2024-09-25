@@ -24,8 +24,8 @@ fi
 git clone https://github.com/boostorg/boost.git ./libraries/boost/
 cd libraries
 mv boost boost-src
-mkdir boost
-cd boost
+mkdir boost-1.79.0
+cd boost-1.79.0
 install_path=$(pwd)
 cd ..
 
