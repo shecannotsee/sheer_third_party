@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -26,8 +24,8 @@ fi
 git clone https://github.com/json-c/json-c.git ./libraries/json-c/
 cd libraries
 mv json-c json-c-src
-mkdir json-c
-cd json-c
+mkdir json-c-0.17
+cd json-c-0.17
 install_path=$(pwd)
 cd ..
 
@@ -39,12 +37,3 @@ cd build
 cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
 make -j8
 make install
-
-
-
-
-
-
-
-
-
