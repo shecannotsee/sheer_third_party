@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -26,19 +24,19 @@ fi
 git clone https://github.com/jtv/libpqxx.git ./libraries/libpqxx/
 cd libraries
 mv libpqxx libpqxx-src
-mkdir libpqxx
-cd libpqxx
+mkdir libpqxx-7.9.0
+cd libpqxx-7.9.0
 install_path=$(pwd)
 cd ..
 # pgsql include #
-cd PostgreSQL
+cd PostgreSQL-14.12
 pgsql_dir=$(pwd)
 cd include
 pgsql_include=$(pwd)
 cd ..
 cd ..
 # pgsql lib
-cd PostgreSQL
+cd PostgreSQL-14.12
 cd lib
 pgsql_lib=$(pwd)
 cd ..
@@ -69,12 +67,3 @@ cmake -DCMAKE_INSTALL_PREFIX="$install_path" \
 
 make -j8
 make install
-
-
-
-
-
-
-
-
-
