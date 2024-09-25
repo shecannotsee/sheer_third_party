@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -46,12 +44,3 @@ cd qt5-build
 ../qt5-src/configure -developer-build -opensource -nomake examples -nomake tests -skip qtdocgallery -prefix "$install_path"
 make -j8
 make install
-
-
-
-
-
-
-
-
-
