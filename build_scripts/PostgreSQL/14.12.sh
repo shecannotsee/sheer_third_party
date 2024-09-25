@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -26,8 +24,8 @@ fi
 git clone https://github.com/postgres/postgres.git ./libraries/PostgreSQL/
 cd libraries
 mv PostgreSQL PostgreSQL-src
-mkdir PostgreSQL
-cd PostgreSQL
+mkdir PostgreSQL-14.12
+cd PostgreSQL-14.12
 install_path=$(pwd)
 cd ..
 
@@ -37,12 +35,3 @@ git checkout REL_14_12
 ./configure --prefix="$install_path"
 make -j8
 make install
-
-
-
-
-
-
-
-
-
