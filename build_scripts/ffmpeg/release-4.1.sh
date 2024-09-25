@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -26,8 +24,8 @@ fi
 git clone https://github.com/FFmpeg/FFmpeg.git ./libraries/ffmpeg
 cd libraries
 mv ffmpeg ffmpeg-src
-mkdir ffmpeg
-cd ffmpeg
+mkdir ffmpeg-release-4.1
+cd ffmpeg-release-4.1
 install_path=$(pwd)
 cd ..
 
