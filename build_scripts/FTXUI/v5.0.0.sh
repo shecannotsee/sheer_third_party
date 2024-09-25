@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -26,8 +24,8 @@ fi
 git clone https://github.com/ArthurSonzogni/FTXUI.git ./libraries/FTXUI/
 cd libraries
 mv FTXUI FTXUI-src
-mkdir FTXUI
-cd FTXUI
+mkdir FTXUI-v5.0.0
+cd FTXUI-v5.0.0
 install_path=$(pwd)
 cd ..
 
