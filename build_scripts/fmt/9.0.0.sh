@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -26,8 +24,8 @@ fi
 git clone https://github.com/fmtlib/fmt.git ./libraries/fmt/
 cd libraries
 mv fmt fmt-src
-mkdir fmt
-cd fmt
+mkdir fmt-9.0.0
+cd fmt-9.0.0
 install_path=$(pwd)
 cd ..
 
@@ -39,12 +37,3 @@ cd build
 cmake -DFMT_TEST=OFF -DCMAKE_INSTALL_PREFIX="$install_path" ..
 make -j8
 make install
-
-
-
-
-
-
-
-
-
