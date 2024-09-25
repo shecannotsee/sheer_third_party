@@ -26,8 +26,8 @@ git clone https://github.com/chriskohlhoff/asio.git ./libraries/asio/ --branch a
 cd libraries
 mv asio asio-src
 # build
-mkdir asio
-cd asio
+mkdir asio-1.18.0
+cd asio-1.18.0
 install_path=$(pwd)
 cd ..
 
