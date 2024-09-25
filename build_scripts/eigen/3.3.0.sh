@@ -23,8 +23,8 @@ fi
 git clone https://gitlab.com/libeigen/eigen.git ./libraries/eigen/
 cd libraries
 mv eigen eigen-src
-mkdir eigen
-cd eigen
+mkdir eigen-3.3.0
+cd eigen-3.3.0
 install_path=$(pwd)
 cd ..
 
