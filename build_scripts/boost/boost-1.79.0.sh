@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -22,20 +20,20 @@ else
     echo "Create libraries."
 fi
 
-git clone https://gitlab.com/libeigen/eigen.git ./libraries/eigen/
+# get source code
+git clone https://github.com/boostorg/boost.git ./libraries/boost/
 cd libraries
-mv eigen eigen-src
-mkdir eigen
-cd eigen
+mv boost boost-src
+mkdir boost
+cd boost
 install_path=$(pwd)
 cd ..
 
 # build
-cd eigen-src
-git checkout 3.3.0
-mkdir build
-cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
-
+cd boost-src
+git checkout boost-1.79.0
+git submodule update --init --recursive
+./bootstrap.sh --prefix="$install_path"
+# set python version
+# ./bootstrap.sh --with-python=/usr/local/python3.8/bin/python3 --prefix="$install_path"
+./b2 install
