@@ -24,8 +24,8 @@ fi
 git clone https://github.com/fltk/fltk.git ./libraries/fltk/
 cd libraries
 mv fltk fltk-src
-mkdir fltk-release-1.3.7
-cd fltk-release-1.3.7
+mkdir fltk-1.3.7
+cd fltk-1.3.7
 install_path=$(pwd)
 cd ..
 
