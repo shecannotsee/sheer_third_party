@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -26,8 +24,8 @@ fi
 git clone https://github.com/madler/zlib.git ./libraries/zlib/
 cd libraries
 mv zlib zlib-src
-mkdir zlib
-cd zlib
+mkdir zlib-v1.2.13
+cd zlib-v1.2.13
 install_path=$(pwd)
 cd ..
 
@@ -37,12 +35,3 @@ git checkout v1.2.13
 ./configure --prefix="$install_path"
 make -j8
 make install
-
-
-
-
-
-
-
-
-
