@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -27,8 +25,8 @@ cd libraries
 wget https://luarocks.org/releases/luarocks-3.11.1.tar.gz
 tar zxpf luarocks-3.11.1.tar.gz
 mv luarocks-3.11.1 luarocks-3.11.1-src
-mkdir luarocks
-cd luarocks
+mkdir luarocks-3.11.1
+cd luarocks-3.11.1
 install_path=$(pwd)
 cd ..
 
@@ -37,12 +35,3 @@ cd luarocks-3.11.1-src
 ./configure --prefix="$install_path"
 make -j8
 make install
-
-
-
-
-
-
-
-
-
