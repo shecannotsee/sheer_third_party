@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -26,8 +24,8 @@ fi
 git clone https://github.com/zlib-ng/minizip-ng.git ./libraries/minizip-ng/
 cd libraries
 mv minizip-ng minizip-ng-src
-mkdir minizip-ng
-cd minizip-ng
+mkdir minizip-ng-3.0.9
+cd minizip-ng-3.0.9
 install_path=$(pwd)
 cd ..
 
@@ -41,12 +39,3 @@ cmake -DCMAKE_INSTALL_PREFIX="$install_path" \
   ..
 make -j8
 make install
-
-
-
-
-
-
-
-
-
