@@ -2,8 +2,6 @@
 project="sheer_third_party"
 project_length=${#project}
 # Get pwd string
-cd ..
-cd ..
 path=$(pwd)
 # Get last project_length chars
 suffix="${path: -$project_length}"
@@ -26,8 +24,8 @@ fi
 git clone https://github.com/google/glog.git ./libraries/glog/
 cd libraries
 mv glog glog-src
-mkdir glog
-cd glog
+mkdir glog-v0.6.0
+cd glog-v0.6.0
 install_path=$(pwd)
 cd ..
 
@@ -39,12 +37,3 @@ cd build
 cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
 make -j8
 make install
-
-
-
-
-
-
-
-
-
