@@ -35,7 +35,7 @@ else
 fi
 
 # check data_store
-cd PostgreSQL
+cd PostgreSQL-14.12
 if [ -d "./data_store" ];
 then
     echo "data_store exist."
