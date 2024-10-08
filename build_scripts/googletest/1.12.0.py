@@ -148,6 +148,7 @@ if __name__ == "__main__":
                 raise Exception("Unknow step......{step_name}")
     except Exception as e:
         record(LOG_LEVEL.WARNING, str(e))
+        exit(1)
 
-    record(LOG_LEVEL.INFO, "build and install lib: googletest success")
+    record(LOG_LEVEL.INFO, "build and install lib: googletest-1.12.0 success")
 
