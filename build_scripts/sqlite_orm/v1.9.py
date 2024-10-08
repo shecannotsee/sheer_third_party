@@ -158,5 +158,5 @@ if __name__ == "__main__":
         record(LOG_LEVEL.WARNING, str(e))
         exit(1)
 
-    record(LOG_LEVEL.INFO, "build and install lib: sqlite_orm success")
+    record(LOG_LEVEL.INFO, "build and install lib: sqlite_orm-v1.9 success")
 
