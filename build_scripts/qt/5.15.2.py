@@ -162,5 +162,5 @@ if __name__ == "__main__":
         record(LOG_LEVEL.WARNING, str(e))
         exit(1)
 
-    record(LOG_LEVEL.INFO, "build and install lib: qt success")
+    record(LOG_LEVEL.INFO, "build and install lib: qt-5.15.2 success")
 
