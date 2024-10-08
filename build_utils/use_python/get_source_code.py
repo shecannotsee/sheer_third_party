@@ -20,3 +20,12 @@ def switch_branches(version: str) -> str:
     subprocess.run(command, check=True)
     return " ".join(command) # Format output command
 
+def pull_submodules() -> str:
+    """
+    切换仓库分支
+    :param version: 分支名
+    """
+    command: list = ["git", "submodule", "update", "--init", "--recursive"]
+    subprocess.run(command, check=True)
+    return " ".join(command) # Format output command
+
