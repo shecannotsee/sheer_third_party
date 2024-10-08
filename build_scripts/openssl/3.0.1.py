@@ -151,6 +151,7 @@ if __name__ == "__main__":
                 raise Exception("Unknow step......{step_name}")
     except Exception as e:
         record(LOG_LEVEL.WARNING, str(e))
+        exit(1)
 
     record(LOG_LEVEL.INFO, "build and install lib: openssl-3.0.1 success")
 
