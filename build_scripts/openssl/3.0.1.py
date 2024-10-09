@@ -28,15 +28,13 @@ def get_source_code(work_path: str, url: str, clone_dir: str, version: str) -> b
         return False
     return True
 
-def pre_build(work_path: str, source_path: str, build_path: str, *args):
+def pre_build(work_path: str, source_path: str, *args):
     """
     预构建步骤
     """
     try:
         check_workiong_path_in(work_path)
         change_path_to(source_path)
-        check_directory_exists(build_path)
-        change_path_to(build_path)
         command: str = config(*args)
         record(LOG_LEVEL.INFO, f"Successfully executed command: {command}")
     except Exception as e:
@@ -44,13 +42,13 @@ def pre_build(work_path: str, source_path: str, build_path: str, *args):
         return False
     return True
 
-def build_with_install(work_path: str, source_path: str, build_dir: str):
+def build_with_install(work_path: str, source_path: str):
     """
     构建步骤
     """
     try:
         check_workiong_path_in(work_path)
-        change_path_to(source_path + "/" + build_dir)
+        change_path_to(source_path)
         command: str = make()
         record(LOG_LEVEL.INFO, f"Successfully executed command: {command}")
         command: str = install()
@@ -73,14 +71,12 @@ if __name__ == "__main__":
                                 "version"    : "openssl-3.0.1"}),
         ("pre_build", { "work_path"        : "sheer_third_party",
                         "source_path"      : "libraries/openssl-src",
-                        "build_dir"        : "build",
                         "version"          : "3.0.1",
                         "pre_install_path" : "libraries/openssl",
                         "config_options1"   : "--prefix=",
                         "config_options2"   : "--openssldir="}),
         ("build_with_install", {"work_path"    : "sheer_third_party",
-                                "source_path"  : "libraries/openssl-src",
-                                "build_dir"    : "build"})
+                                "source_path"  : "libraries/openssl-src"})
     ]
 
 
@@ -116,7 +112,6 @@ if __name__ == "__main__":
                 current_path: str = get_current_path()
                 build_log.set_value(step_name, "work_path",        step_data["work_path"])
                 build_log.set_value(step_name, "source_path",      step_data["source_path"])
-                build_log.set_value(step_name, "build_dir",        step_data["build_dir"])
                 build_log.set_value(step_name, "version",          step_data["version"])
                 build_log.set_value(step_name, "pre_install_path", step_data["pre_install_path"])
                 build_log.set_value(step_name, "config_options1",   step_data["config_options1"])
@@ -125,7 +120,7 @@ if __name__ == "__main__":
                 install_path: str = current_path + "/" + step_data["pre_install_path"] + "-" +  step_data["version"]
                 config_param1: str = step_data["config_options1"] + install_path
                 config_param2: str = step_data["config_options2"] + install_path + "/ssl"
-                if pre_build(step_data["work_path"], step_data["source_path"], step_data["build_dir"], config_param1, config_param2) == False:
+                if pre_build(step_data["work_path"], step_data["source_path"],config_param1, config_param2) == False:
                     change_path_to(current_path)
                     delete_directory(step_data["source_path"] + "/" + step_data["build_dir"])
                     raise Exception(f"Step execution interrupt: {step_name}")
@@ -139,9 +134,8 @@ if __name__ == "__main__":
                 current_path: str = get_current_path()
                 build_log.set_value(step_name, "work_path",   step_data["work_path"])
                 build_log.set_value(step_name, "source_path", step_data["source_path"])
-                build_log.set_value(step_name, "build_dir",   step_data["build_dir"])
                 # 执行本步骤
-                if build_with_install(step_data["work_path"], step_data["source_path"], step_data["build_dir"]) == False:
+                if build_with_install(step_data["work_path"], step_data["source_path"]) == False:
                     raise Exception(f"Step execution interrupt: {step_name}")
                 # 执行成功则记录步骤执行结果
                 change_path_to(current_path)
