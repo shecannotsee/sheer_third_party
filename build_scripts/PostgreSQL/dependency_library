@@ -1,0 +1,6 @@
+ubuntu22.04:
+sudo apt install
+    libreadline-dev
+    bison
+    ... # TODO
+
