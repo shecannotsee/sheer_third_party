@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/FFmpeg/FFmpeg.git ./libraries/ffmpeg
+git clone https://github.com/FFmpeg/FFmpeg.git ./libraries/ffmpeg || \
+  { echo "Failed to clone FFmpeg repository."; exit 1; }
 cd libraries
 mv ffmpeg ffmpeg-src
 mkdir ffmpeg-4.1
@@ -31,16 +32,11 @@ cd ..
 
 # build
 cd ffmpeg-src
-git checkout release/4.1
-./configure --prefix="$install_path" --enable-shared --enable-gpl --enable-libx264 --enable-libx265
-make -j8
-make install
-
-
-
-
-
-
-
-
-
+git checkout release/4.1 || \
+  { echo "Failed to checkout release/4.1 of ffmpeg."; exit 1; }
+./configure --prefix="$install_path" --enable-shared --enable-gpl --enable-libx264 --enable-libx265 || \
+  { echo "configure failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }
