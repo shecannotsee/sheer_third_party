@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/fmtlib/fmt.git ./libraries/fmt/
+git clone https://github.com/fmtlib/fmt.git ./libraries/fmt/ || \
+  { echo "Failed to clone fmt repository."; exit 1; }
 cd libraries
 mv fmt fmt-src
 mkdir fmt-9.0.0
@@ -31,9 +32,13 @@ cd ..
 
 # build
 cd fmt-src
-git checkout 9.0.0
+git checkout 9.0.0 || \
+  { echo "Failed to checkout 9.0.0 of fmt."; exit 1; }
 mkdir build
 cd build
-cmake -DFMT_TEST=OFF -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
+cmake -DFMT_TEST=OFF -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/shecannotsee/sheer.git ./libraries/sheer/
+git clone https://github.com/shecannotsee/sheer.git ./libraries/sheer/ || \
+  { echo "Failed to clone sheer repository."; exit 1; }
 cd libraries
 mv sheer sheer-src
 mkdir sheer
@@ -33,6 +34,9 @@ cd ..
 cd sheer-src
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" -Dbuild_tests=OFF ..
-make -j8
-make install
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" -Dbuild_tests=OFF .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

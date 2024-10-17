@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/google/glog.git ./libraries/glog/
+git clone https://github.com/google/glog.git ./libraries/glog/ || \
+  { echo "Failed to clone glog repository."; exit 1; }
 cd libraries
 mv glog glog-src
 mkdir glog-v0.6.0
@@ -31,9 +32,13 @@ cd ..
 
 # build
 cd glog-src
-git checkout v0.6.0
+git checkout v0.6.0 || \
+  { echo "Failed to checkout v0.6.0 of glog."; exit 1; }
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

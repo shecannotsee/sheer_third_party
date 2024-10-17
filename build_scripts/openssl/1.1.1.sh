@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/openssl/openssl.git ./libraries/openssl/
+git clone https://github.com/openssl/openssl.git ./libraries/openssl/ || \
+  { echo "Failed to clone openssl repository."; exit 1; }
 cd libraries
 mv openssl openssl-src
 mkdir openssl-1.1.1
@@ -31,7 +32,11 @@ cd ..
 
 # build
 cd openssl-src
-git checkout OpenSSL_1_1_1
-./config --prefix="$install_path" --openssldir="$install_path"/ssl
-make -j8
-make install
+git checkout OpenSSL_1_1_1 || \
+  { echo "Failed to checkout OpenSSL_1_1_1 of openssl."; exit 1; }
+./config --prefix="$install_path" --openssldir="$install_path"/ssl || \
+  { echo "config failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

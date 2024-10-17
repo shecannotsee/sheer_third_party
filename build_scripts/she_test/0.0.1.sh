@@ -34,7 +34,10 @@ cd she_test-src
 git checkout v0.0.1
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..  || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }
 cp -r ./she_test/include/ "$install_path"

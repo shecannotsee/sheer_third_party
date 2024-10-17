@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/google/benchmark.git ./libraries/benchmark/
+git clone https://github.com/google/benchmark.git ./libraries/benchmark/ || \
+  { echo "Failed to clone benchmark repository."; exit 1; }
 cd libraries
 mv benchmark benchmark-src
 mkdir benchmark-v1.8.3
@@ -31,9 +32,13 @@ cd ..
 
 # build
 cd benchmark-src
-git checkout v1.8.3
+git checkout v1.8.3 || \
+  { echo "Failed to checkout v1.8.3 of benchmark."; exit 1; }
 mkdir build
 cd build
-cmake -DBENCHMARK_DOWNLOAD_DEPENDENCIES=on -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
+cmake -DBENCHMARK_DOWNLOAD_DEPENDENCIES=on -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/microsoft/GSL.git ./libraries/GSL/
+git clone https://github.com/microsoft/GSL.git ./libraries/GSL/ || \
+  { echo "Failed to clone GSL repository."; exit 1; }
 cd libraries
 mv GSL GSL-src
 mkdir GSL-v4.0.0
@@ -31,9 +32,13 @@ cd ..
 
 # build
 cd GSL-src
-git checkout tags/v4.0.0
+git checkout tags/v4.0.0 || \
+  { echo "Failed to checkout v4.0.0 of GSL."; exit 1; }
 mkdir build
 cd build
-cmake -DGSL_TEST=OFF -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
+cmake -DGSL_TEST=OFF -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/gabime/spdlog.git ./libraries/spdlog/
+git clone https://github.com/gabime/spdlog.git ./libraries/spdlog/ || \
+  { echo "Failed to clone spdlog repository."; exit 1; }
 cd libraries
 mv spdlog spdlog-src
 mkdir spdlog-v1.10.0
@@ -31,9 +32,13 @@ cd ..
 
 # build
 cd spdlog-src
-git checkout v1.10.0
+git checkout v1.10.0 || \
+  { echo "Failed to checkout v1.10.0 of spdlog."; exit 1; }
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

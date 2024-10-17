@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/eclipse/paho.mqtt.cpp.git ./libraries/paho.mqtt.cpp/
+git clone https://github.com/eclipse/paho.mqtt.cpp.git ./libraries/paho.mqtt.cpp/ || \
+  { echo "Failed to clone paho.mqtt.cpp repository."; exit 1; }
 cd libraries
 mv paho.mqtt.cpp paho.mqtt.cpp-src
 mkdir paho.mqtt.cpp-v1.2.0
@@ -31,7 +32,8 @@ cd ..
 
 # build
 cd paho.mqtt.cpp-src
-git checkout v1.2.0
+git checkout v1.2.0 || \
+  { echo "Failed to checkout v1.2.0 of paho.mqtt.cpp."; exit 1; }
 mkdir build
 cd build
 # set openssl path
@@ -39,6 +41,9 @@ cmake -DCMAKE_INSTALL_PREFIX="$install_path" \
   -DPAHO_WITH_SSL=TRUE \
   -DOPENSSL_ROOT_DIR=/home/shecannotsee/Desktop/sheer_third_party/libraries/openssl-1.1.1 \
   -DCMAKE_PREFIX_PATH=/home/shecannotsee/Desktop/sheer_third_party/libraries/paho.mqtt.c-v1.3.10 \
-  ..
-make -j8
-make install
+  .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

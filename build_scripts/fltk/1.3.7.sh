@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/fltk/fltk.git ./libraries/fltk/
+git clone https://github.com/fltk/fltk.git ./libraries/fltk/ || \
+  { echo "Failed to clone fltk repository."; exit 1; }
 cd libraries
 mv fltk fltk-src
 mkdir fltk-1.3.7
@@ -31,9 +32,13 @@ cd ..
 
 # build
 cd fltk-src
-git checkout release-1.3.7
+git checkout release-1.3.7 || \
+  { echo "Failed to checkout release-1.3.7 of fltk."; exit 1; }
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

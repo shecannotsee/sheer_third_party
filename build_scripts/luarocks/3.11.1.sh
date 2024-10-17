@@ -32,6 +32,9 @@ cd ..
 
 # build
 cd luarocks-3.11.1-src
-./configure --prefix="$install_path"
-make -j8
-make install
+./configure --prefix="$install_path" || \
+  { echo "configure failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/facebook/folly.git ./libraries/folly/
+git clone https://github.com/facebook/folly.git ./libraries/folly/ || \
+  { echo "Failed to clone folly repository."; exit 1; }
 cd libraries
 mv folly folly-src
 mkdir folly
@@ -31,16 +32,20 @@ cd ..
 
 # build
 cd folly-src
-git checkout v2023.08.07.00
+git checkout v2023.08.07.00 || \
+  { echo "Failed to checkout v2023.08.07.00 of folly."; exit 1; }
 mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX=/home/shecannotsee/desktop/sheer_third_party/libraries/folly \
       -DBUILD_TESTS=OFF \
       -DCMAKE_INCLUDE_PATH=../../boost/include:../../googletest/include \
       -DCMAKE_LIBRARY_PATH=../../boost/lib:../../googletest/lib \
-      ..
-make -j8
-make install
+      .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }
 
 
 

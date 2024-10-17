@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone git://code.qt.io/qt/qt5.git ./libraries/qt5/
+git clone git://code.qt.io/qt/qt5.git ./libraries/qt5/ || \
+  { echo "Failed to clone qt repository."; exit 1; }
 cd libraries
 mv qt5 qt5-src
 mkdir qt5
@@ -32,7 +33,8 @@ cd ..
 
 # build
 cd qt5-src
-git checkout 5.15.2
+git checkout 5.15.2 || \
+  { echo "Failed to checkout 5.15.2 of qt."; exit 1; }
 git submodule update --init --recursive
 cd ..
 
@@ -41,6 +43,9 @@ read go
 echo "$go"
 
 cd qt5-build
-../qt5-src/configure -developer-build -opensource -nomake examples -nomake tests -skip qtdocgallery -prefix "$install_path"
-make -j8
-make install
+../qt5-src/configure -developer-build -opensource -nomake examples -nomake tests -skip qtdocgallery -prefix "$install_path" || \
+  { echo "configure failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

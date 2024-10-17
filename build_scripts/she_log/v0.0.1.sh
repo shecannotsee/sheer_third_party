@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/shecannotsee/she_log.git ./libraries/she_log/
+git clone https://github.com/shecannotsee/she_log.git ./libraries/she_log/ || \
+  { echo "Failed to clone she_log repository."; exit 1; }
 cd libraries
 # build third_party
 cd she_log
@@ -37,10 +38,15 @@ cd ..
 
 # build
 cd she_log-src
-git checkout v0.0.1
+git checkout v0.0.1 || \
+  { echo "Failed to checkout v0.0.1 of she_log."; exit 1; }
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }
+
 cp -r ./she_log/* "$install_path"

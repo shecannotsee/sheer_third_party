@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/json-c/json-c.git ./libraries/json-c/
+git clone https://github.com/json-c/json-c.git ./libraries/json-c/ || \
+  { echo "Failed to clone json-c repository."; exit 1; }
 cd libraries
 mv json-c json-c-src
 mkdir json-c-0.17
@@ -31,9 +32,13 @@ cd ..
 
 # build
 cd json-c-src
-git checkout json-c-0.17-20230812
+git checkout json-c-0.17-20230812 || \
+  { echo "Failed to checkout json-c-0.17-20230812 of json-c."; exit 1; }
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

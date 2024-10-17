@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/zlib-ng/minizip-ng.git ./libraries/minizip-ng/
+git clone https://github.com/zlib-ng/minizip-ng.git ./libraries/minizip-ng/ || \
+  { echo "Failed to clone minizip-ng repository."; exit 1; }
 cd libraries
 mv minizip-ng minizip-ng-src
 mkdir minizip-ng-3.0.9
@@ -31,11 +32,15 @@ cd ..
 
 # build
 cd minizip-ng-src
-git checkout 3.0.9
+git checkout 3.0.9 || \
+  { echo "Failed to checkout 3.0.9 of minizip-ng-src."; exit 1; }
 mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX="$install_path" \
   MZ_BUILD_TESTS=OFF \
-  ..
-make -j8
-make install
+  .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/jbeder/yaml-cpp.git ./libraries/yaml-cpp/
+git clone https://github.com/jbeder/yaml-cpp.git ./libraries/yaml-cpp/ || \
+  { echo "Failed to clone yaml-cpp repository."; exit 1; }
 cd libraries
 mv yaml-cpp yaml-cpp-src
 mkdir yaml-cpp-0.8.0
@@ -31,9 +32,13 @@ cd ..
 
 # build
 cd yaml-cpp-src
-git checkout 0.8.0
+git checkout 0.8.0 || \
+  { echo "Failed to checkout 0.8.0 of yaml-cpp."; exit 1; }
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

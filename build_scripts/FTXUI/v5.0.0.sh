@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/ArthurSonzogni/FTXUI.git ./libraries/FTXUI/
+git clone https://github.com/ArthurSonzogni/FTXUI.git ./libraries/FTXUI/ || \
+  { echo "Failed to clone FTXUI repository."; exit 1; }
 cd libraries
 mv FTXUI FTXUI-src
 mkdir FTXUI-v5.0.0
@@ -31,12 +32,15 @@ cd ..
 
 # build
 cd FTXUI-src
-git checkout v5.0.0
+git checkout v5.0.0 || \
+  { echo "Failed to checkout v5.0.0 of FTXUI."; exit 1; }
 mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }
 
 
 

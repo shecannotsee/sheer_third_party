@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/madler/zlib.git ./libraries/zlib/
+git clone https://github.com/madler/zlib.git ./libraries/zlib/ || \
+  { echo "Failed to clone zlib repository."; exit 1; }
 cd libraries
 mv zlib zlib-src
 mkdir zlib-v1.2.13
@@ -31,7 +32,11 @@ cd ..
 
 # build
 cd zlib-src
-git checkout v1.2.13
+git checkout v1.2.13 || \
+  { echo "Failed to checkout v1.2.13 of zlib."; exit 1; }
 ./configure --prefix="$install_path"
-make -j8
-make install
+  { echo "configure failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/boostorg/boost.git ./libraries/boost/
+git clone https://github.com/boostorg/boost.git ./libraries/boost/ || \
+  { echo "Failed to clone boost repository."; exit 1; }
 cd libraries
 mv boost boost-src
 mkdir boost-1.79.0
@@ -31,9 +32,13 @@ cd ..
 
 # build
 cd boost-src
-git checkout boost-1.79.0
-git submodule update --init --recursive
-./bootstrap.sh --prefix="$install_path"
+git checkout boost-1.79.0 || \
+  { echo "Failed to checkout boost-1.79.0 of boost."; exit 1; }
+git submodule update --init --recursive || \
+  { echo "git submodule failed."; exit 1; }
+./bootstrap.sh --prefix="$install_path" || \
+  { echo "bootstrap failed."; exit 1; }
 # set python version
 # ./bootstrap.sh --with-python=/usr/local/python3.8/bin/python3 --prefix="$install_path"
-./b2 install
+./b2 install || \
+  { echo "install failed."; exit 1; }

@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/pybind/pybind11.git ./libraries/pybind11/
+git clone https://github.com/pybind/pybind11.git ./libraries/pybind11/ || \
+  { echo "Failed to clone pybind11 repository."; exit 1; }
 cd libraries
 mv pybind11 pybind11-src
 mkdir pybind11-v2.11.0
@@ -31,9 +32,13 @@ cd ..
 
 # build
 cd pybind11-src
-git checkout v2.11.0
+git checkout v2.11.0 || \
+  { echo "Failed to checkout v2.11.0 of pybind11."; exit 1; }
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

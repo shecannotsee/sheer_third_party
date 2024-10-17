@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/Thalhammer/jwt-cpp.git ./libraries/jwt-cpp/
+git clone https://github.com/Thalhammer/jwt-cpp.git ./libraries/jwt-cpp/ || \
+  { echo "Failed to clone jwt-cpp repository."; exit 1; }
 cd libraries
 mv jwt-cpp jwt-cpp-src
 mkdir jwt-cpp-v0.7.0
@@ -31,9 +32,13 @@ cd ..
 
 # build
 cd jwt-cpp-src
-git checkout v0.7.0
+git checkout v0.7.0 || \
+  { echo "Failed to checkout v0.7.0 of jwt-cpp."; exit 1; }
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

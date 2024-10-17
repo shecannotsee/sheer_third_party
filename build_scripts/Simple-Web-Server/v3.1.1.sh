@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://gitlab.com/eidheim/Simple-Web-Server.git ./libraries/Simple-Web-Server/
+git clone https://gitlab.com/eidheim/Simple-Web-Server.git ./libraries/Simple-Web-Server/ || \
+  { echo "Failed to clone Simple-Web-Server repository."; exit 1; }
 cd libraries
 mv Simple-Web-Server Simple-Web-Server-src
 mkdir Simple-Web-Server-v3.1.1
@@ -31,10 +32,14 @@ cd ..
 
 # build
 cd Simple-Web-Server-src
-git checkout v3.1.1
+git checkout v3.1.1 || \
+  { echo "Failed to checkout v3.1.1 of Simple-Web-Server."; exit 1; }
 mkdir build
 cd build
 # set boost install dir
-cmake -DBOOST_ROOT=/home/shecannotsee/Desktop/sheer_third_party/libraries/boost-1.79.0 -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
+cmake -DBOOST_ROOT=/home/shecannotsee/Desktop/sheer_third_party/libraries/boost-1.79.0 -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

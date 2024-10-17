@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/lua/lua.git ./libraries/lua/
+git clone https://github.com/lua/lua.git ./libraries/lua/ || \
+  { echo "Failed to clone lua repository."; exit 1; }
 cd libraries
 mv lua lua-src
 mkdir lua-v5.3.6
@@ -31,6 +32,8 @@ cd ..
 
 # build
 cd lua-src
-git checkout v5.3.6
-make -j8
+git checkout v5.3.6 || \
+  { echo "Failed to checkout v5.3.6 of lua."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
 cp ./lua "$install_path"

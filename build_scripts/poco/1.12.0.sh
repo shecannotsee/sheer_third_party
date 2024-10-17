@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/pocoproject/poco.git ./libraries/poco/
+git clone https://github.com/pocoproject/poco.git ./libraries/poco/ || \
+  { echo "Failed to clone poco repository."; exit 1; }
 cd libraries
 mv poco poco-src
 mkdir poco-1.12.0
@@ -31,7 +32,11 @@ cd ..
 
 # build
 cd poco-src
-git checkout poco-1.12.0-release
-./configure --prefix="$install_path" --no-tests
-make -j8
-make install
+git checkout poco-1.12.0-release || \
+  { echo "Failed to checkout poco-1.12.0-release of poco."; exit 1; }
+./configure --prefix="$install_path" --no-tests || \
+  { echo "configure failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

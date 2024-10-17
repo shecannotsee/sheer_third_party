@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/Neargye/magic_enum.git ./libraries/magic_enum/
+git clone https://github.com/Neargye/magic_enum.git ./libraries/magic_enum/ || \
+  { echo "Failed to clone magic_enum repository."; exit 1; }
 cd libraries
 mv magic_enum magic_enum-src
 mkdir magic_enum-v0.9.0
@@ -31,9 +32,13 @@ cd ..
 
 # build
 cd magic_enum-src
-git checkout v0.9.0
+git checkout v0.9.0 || \
+  { echo "Failed to checkout v0.9.0 of magic_enum."; exit 1; }
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

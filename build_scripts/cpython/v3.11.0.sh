@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/python/cpython.git ./libraries/cpython/
+git clone https://github.com/python/cpython.git ./libraries/cpython/ || \
+  { echo "Failed to clone cpython repository."; exit 1; }
 cd libraries
 mv cpython cpython-src
 mkdir cpython-v3.11.0
@@ -31,7 +32,11 @@ cd ..
 
 # build
 cd cpython-src
-git checkout v3.11.0
-./configure --prefix="$install_path"
-make -j8
-make install
+git checkout v3.11.0 || \
+  { echo "Failed to checkout v3.11.0 of cpython."; exit 1; }
+./configure --prefix="$install_path" || \
+  { echo "configure failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

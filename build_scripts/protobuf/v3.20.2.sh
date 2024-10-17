@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/protocolbuffers/protobuf.git ./libraries/protobuf/
+git clone https://github.com/protocolbuffers/protobuf.git ./libraries/protobuf/ || \
+  { echo "Failed to clone protobuf repository."; exit 1; }
 cd libraries
 mv protobuf protobuf-src
 mkdir protobuf-v3.20.2
@@ -31,10 +32,15 @@ cd ..
 
 # build
 cd protobuf-src
-git checkout v3.20.2
-git submodule update --init --recursive
+git checkout v3.20.2 || \
+  { echo "Failed to checkout v3.20.2 of protobuf."; exit 1; }
+git submodule update --init --recursive || \
+  { echo "git submodule update failed."; exit 1; }
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" -Dprotobuf_BUILD_TESTS=OFF ../cmake/
-make -j8
-make install
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" -Dprotobuf_BUILD_TESTS=OFF ../cmake/ || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

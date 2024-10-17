@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/chriskohlhoff/asio.git ./libraries/asio/ --branch asio-1-18-0
+git clone https://github.com/chriskohlhoff/asio.git ./libraries/asio/ --branch asio-1-18-0 || \
+  { echo "Failed to clone asio repository."; exit 1; }
 
 cd libraries
 mv asio asio-src
@@ -33,7 +34,12 @@ cd ..
 
 cd asio-src
 cd asio
-./autogen.sh
-./configure --without-boost --prefix="$install_path"
-make -j8
-make install
+./autogen.sh || \
+  { echo "autogen failed."; exit 1; }
+./configure --without-boost --prefix="$install_path" || \
+  { echo "configure failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }
+

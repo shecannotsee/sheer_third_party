@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/google/googletest.git ./libraries/googletest/
+git clone https://github.com/google/googletest.git ./libraries/googletest/ || \
+  { echo "Failed to clone googletest repository."; exit 1; }
 cd libraries
 mv googletest googletest-src
 mkdir googletest-1.12.0
@@ -31,9 +32,13 @@ cd ..
 
 # build
 cd googletest-src
-git checkout release-1.12.0
+git checkout release-1.12.0 || \
+  { echo "Failed to checkout release-1.12.0 of googletest."; exit 1; }
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }

@@ -21,7 +21,8 @@ else
 fi
 
 # get source code
-git clone https://github.com/shecannotsee/she_ini_parse.git ./libraries/she_ini_parse/
+git clone https://github.com/shecannotsee/she_ini_parse.git ./libraries/she_ini_parse/ || \
+  { echo "Failed to clone she_ini_parse repository."; exit 1; }
 cd libraries
 # build third_party
 cd she_ini_parse
@@ -37,10 +38,14 @@ cd ..
 
 # build
 cd she_ini_parse-src
-git checkout v0.0.1
+git checkout v0.0.1 || \
+  { echo "Failed to checkout v0.0.1 of she_ini_parse."; exit 1; }
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" ..
-make -j8
-make install
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }
 cp -r ./she_ini_parse/* "$install_path"

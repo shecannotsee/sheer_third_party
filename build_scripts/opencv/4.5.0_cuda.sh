@@ -21,8 +21,10 @@ else
 fi
 
 # get source code
-git clone https://github.com/opencv/opencv.git ./libraries/opencv/
-git clone https://github.com/opencv/opencv_contrib.git ./libraries/opencv_contrib/
+git clone https://github.com/opencv/opencv.git ./libraries/opencv/ || \
+  { echo "Failed to clone opencv repository."; exit 1; }
+git clone https://github.com/opencv/opencv_contrib.git ./libraries/opencv_contrib/ || \
+  { echo "Failed to clone opencv_contrib repository."; exit 1; }
 cd libraries
 cd opencv_contrib
 git checkout 4.5.0
@@ -36,7 +38,8 @@ cd ..
 
 # build
 cd opencv-src
-git checkout 4.5.0
+git checkout 4.5.0 || \
+  { echo "Failed to checkout 4.5.0 of opencv."; exit 1; }
 mkdir build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release \
@@ -49,8 +52,9 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DOPENCV_DNN_CUDA=ON \
 #      -DCUDNN_INCLUDE_DIR=/data1/home/home/hairuiqiao/third_partys/cudnn-linux-x86_64-9.2.0.82_cuda11-archive/include \
 #      -DCUDNN_LIBRARY=/data1/home/home/hairuiqiao/third_partys/cudnn-linux-x86_64-9.2.0.82_cuda11-archive/lib/libcudnn.so \
-      ..
-
-
-make -j8
-make install
+      .. || \
+  { echo "cmake failed."; exit 1; }
+make -j8 || \
+  { echo "Build failed."; exit 1; }
+make install || \
+  { echo "Install failed."; exit 1; }
