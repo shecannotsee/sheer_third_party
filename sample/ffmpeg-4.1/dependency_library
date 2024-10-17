@@ -1,6 +1,8 @@
 ubuntu22.04:
 sudo apt install
   nasm
-   pkg-config
+  pkg-config
   libx264-dev
   libx265-dev
+  libsdl2-dev # ffplay
+
