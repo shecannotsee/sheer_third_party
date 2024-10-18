@@ -10,6 +10,8 @@ inline void spdlog_wrapper_test() {
   log::console<log_level::error>("This is an error message with parameter: {}", 42);
   log::console<log_level::debug>("Debugging info: {}", "value");
   log::console<log_level::critical>("Critical error occurred!");
+  spdlog::set_level(spdlog::level::debug);
+  log::console<log_level::debug>("Debugging info: {}", "value");
 
   spdlog_wrapper logger;
   const auto p = logger.register_logger("test");
