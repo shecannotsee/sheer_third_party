@@ -10,14 +10,12 @@ project(${PROJECT_NAME})
 # import spdlog
 set(_spdlog_path "${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/spdlog-v1.10.0")
 set(spdlog_include_dir "${_spdlog_path}/include")
-set(spdlog_lib_dir "${_spdlog_path}/lib")
-set(spdlog_link_libs spdlog)
 ########################################################################################################################
 
 # include
 include_directories(${spdlog_include_dir})
 # lib
-link_directories(${spdlog_lib_dir})
+link_directories()
 
 file(GLOB_RECURSE SRC
         "${CMAKE_SOURCE_DIR}/main.cpp"
@@ -25,4 +23,4 @@ file(GLOB_RECURSE SRC
 add_executable(${PROJECT_NAME} ${SRC})
 
 # link
-target_link_libraries(${PROJECT_NAME} "-pthread" ${spdlog_link_libs})
+target_link_libraries(${PROJECT_NAME} "-pthread")

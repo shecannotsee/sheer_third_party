@@ -34,11 +34,15 @@ cd ..
 cd spdlog-src
 git checkout v1.10.0 || \
   { echo "Failed to checkout v1.10.0 of spdlog."; exit 1; }
-mkdir build
-cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
-  { echo "cmake failed."; exit 1; }
-make -j8 || \
-  { echo "Build failed."; exit 1; }
-make install || \
-  { echo "Install failed."; exit 1; }
+
+cp -r ./include "$install_path" || \
+  { echo "cp failed."; exit 1; }
+
+#mkdir build
+#cd build
+#cmake -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+#  { echo "cmake failed."; exit 1; }
+#make -j8 || \
+#  { echo "Build failed."; exit 1; }
+#make install || \
+#  { echo "Install failed."; exit 1; }
