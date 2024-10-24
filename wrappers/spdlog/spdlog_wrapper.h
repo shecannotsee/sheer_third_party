@@ -20,19 +20,19 @@
 #include <memory>
 
 /**
- * @class log
+ * @class spdlog_wrapper
  * @brief Provides static methods to manage logging with `spdlog`.
  *
- * The `log` class offers static utility methods to obtain a logger instance, manage log levels,
+ * The `spdlog_wrapper` class offers static utility methods to obtain a logger instance, manage log levels,
  * and configure logging outputs for both production and test scenarios. The class supports both
  * rotating log files and console output, using `spdlog`.
  */
-class log {
+class spdlog_wrapper {
  public:
   /**
    * @brief Deleted default constructor to prevent instantiation.
    */
-  log() = delete;
+  spdlog_wrapper() = delete;
 
   /** @brief The log file path for production logs. */
   static std::string log_file;
@@ -129,12 +129,12 @@ class log {
 };
 
 /** @brief Default log file path for production logging. */
-std::string log::log_file = "log_file.log";
+std::string spdlog_wrapper::log_file = "log_file.log";
 
 /** @brief Default log file path for test logging. */
-std::string log::test_log_file = "test_log_file.log";
+std::string spdlog_wrapper::test_log_file = "test_log_file.log";
 
 /** @brief Default module name used for test logging. */
-std::string log::test_module_name = "test";
+std::string spdlog_wrapper::test_module_name = "test";
 
 #endif  // SPDLOG_WRAPPER_H

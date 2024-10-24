@@ -7,16 +7,16 @@
 
 inline void spdlog_wrapper_test() {
     // Setup test parameters
-    log::log_file = "test_log_file.log";
-    log::test_log_file = "test_log_file.log";
-    log::test_module_name = "test";
+    spdlog_wrapper::log_file = "test_log_file.log";
+    spdlog_wrapper::test_log_file = "test_log_file.log";
+    spdlog_wrapper::test_module_name = "test";
 
     // Clear any existing log files before the test
-    std::remove(log::log_file.c_str());
-    std::remove(log::test_log_file.c_str());
+    std::remove(spdlog_wrapper::log_file.c_str());
+    std::remove(spdlog_wrapper::test_log_file.c_str());
 
     // Test logger creation
-    auto logger = log::get_logger("test_logger");
+    auto logger = spdlog_wrapper::get_logger("test_logger");
     if (logger) {
         std::cout << "Logger created successfully: " << logger->name() << std::endl;
     } else {
@@ -32,7 +32,7 @@ inline void spdlog_wrapper_test() {
     logger->critical("This is a critical message.");
 
     // Check if the log file is created and contains the messages
-    std::ifstream log_file(log::log_file);
+    std::ifstream log_file(spdlog_wrapper::log_file);
     if (!log_file.is_open()) {
         std::cerr << "Log file could not be opened." << std::endl;
         return;
@@ -72,8 +72,8 @@ inline void spdlog_wrapper_test() {
     std::cout << "Critical message found: " << (critical_found ? "Yes" : "No") << std::endl;
 
     // Clean up log files after the test
-    std::remove(log::log_file.c_str());
-    std::remove(log::test_log_file.c_str());
+    std::remove(spdlog_wrapper::log_file.c_str());
+    std::remove(spdlog_wrapper::test_log_file.c_str());
 }
 
 #endif //TEST_H
