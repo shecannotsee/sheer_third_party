@@ -162,4 +162,4 @@ if __name__ == "__main__":
         record(LOG_LEVEL.WARNING, str(e))
         exit(1)
 
-    record(LOG_LEVEL.INFO, "build and install lib: ffmpeg-4.1 success")
+    record(LOG_LEVEL.INFO, "build and install lib: ffmpeg-4.3 success")
