@@ -34,7 +34,7 @@ cd ..
 cd zlib-src
 git checkout v1.2.13 || \
   { echo "Failed to checkout v1.2.13 of zlib."; exit 1; }
-./configure --prefix="$install_path"
+./configure --prefix="$install_path" || \
   { echo "configure failed."; exit 1; }
 make -j8 || \
   { echo "Build failed."; exit 1; }

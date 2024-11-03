@@ -32,7 +32,7 @@ cd ..
 
 # build
 cd luarocks-3.11.1-src
-./configure --prefix="$install_path" || \
+./configure --prefix="$install_path" --with-lua-bin=../lua-v5.3.6 --with-lua-include=../lua-src || \
   { echo "configure failed."; exit 1; }
 make -j8 || \
   { echo "Build failed."; exit 1; }
