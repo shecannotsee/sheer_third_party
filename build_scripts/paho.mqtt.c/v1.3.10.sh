@@ -39,7 +39,7 @@ cd build
 # set openssl path
 cmake -DCMAKE_INSTALL_PREFIX="$install_path" \
   -DPAHO_WITH_SSL=TRUE \
-  -DOPENSSL_ROOT_DIR=/home/shecannotsee/Desktop/sheer_third_party/libraries/openssl \
+  -DOPENSSL_ROOT_DIR=../../../libraries/openssl-1.1.1 \
   .. || \
   { echo "cmake failed."; exit 1; }
 make -j8 || \

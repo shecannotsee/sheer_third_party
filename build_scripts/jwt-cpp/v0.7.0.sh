@@ -36,7 +36,13 @@ git checkout v0.7.0 || \
   { echo "Failed to checkout v0.7.0 of jwt-cpp."; exit 1; }
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" \
+  -DOPENSSL_ROOT_DIR=../../../libraries/openssl-1.1.1 \
+  -DOPENSSL_INCLUDE_DIR=../../../libraries/openssl-1.1.1/include \
+  -DOPENSSL_CRYPTO_LIBRARY=../../../libraries/openssl-1.1.1/lib/libcrypto.so \
+  -DOPENSSL_SSL_LIBRARY=../../../libraries/openssl-1.1.1/lib/libssl.so \
+  -DJWT_SSL_LIBRARY=OpenSSL \
+  .. || \
   { echo "cmake failed."; exit 1; }
 make -j8 || \
   { echo "Build failed."; exit 1; }

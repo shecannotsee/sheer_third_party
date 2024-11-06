@@ -1,6 +1,5 @@
 ubuntu22.04:
-sudo apt install
-    libreadline-dev
-    bison
-    ... # TODO
-
+sudo apt install \
+    libreadline-dev \
+    bison \
+    flex
