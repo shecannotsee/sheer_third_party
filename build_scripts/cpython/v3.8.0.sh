@@ -34,7 +34,7 @@ cd ..
 cd cpython-src
 git checkout v3.8.0 || \
   { echo "Failed to checkout v3.8.0 of cpython."; exit 1; }
-./configure --prefix="$install_path" || \
+./configure --prefix="$install_path" --enable-shared || \
   { echo "configure failed."; exit 1; }
 make -j8 || \
   { echo "Build failed."; exit 1; }

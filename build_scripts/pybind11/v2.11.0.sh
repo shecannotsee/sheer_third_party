@@ -36,7 +36,9 @@ git checkout v2.11.0 || \
   { echo "Failed to checkout v2.11.0 of pybind11."; exit 1; }
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX="$install_path" .. || \
+cmake -DCMAKE_INSTALL_PREFIX="$install_path" \
+  -DPYBIND11_TEST=OFF \
+  .. || \
   { echo "cmake failed."; exit 1; }
 make -j8 || \
   { echo "Build failed."; exit 1; }
