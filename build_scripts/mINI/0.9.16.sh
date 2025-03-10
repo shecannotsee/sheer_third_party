@@ -34,6 +34,6 @@ cd ..
 cd mINI-src
 git checkout 0.9.16 || \
   { echo "Failed to checkout 0.9.16 of glog."; exit 1; }
-mkdir -p "${install_path}/include"
-cp ./src/mini/ini.h "${install_path}/include/"
+mkdir -p "${install_path}/include/mini"
+cp ./src/mini/ini.h "${install_path}/include/mini"
 
